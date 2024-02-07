@@ -1,0 +1,45 @@
+import pygame as pg
+import PhysEng as pe
+
+import numpy as np
+import time
+# Path: simulation.py
+
+x = pe.Environment()
+
+#------- adding INTEGRATOR
+# x.set_integrator(pe.verlet())
+
+
+#adding PARTICLES -------
+# for _ in range(40):
+#     x.add_particle(pe.Particle(mass = np.random.randint(1,15), position = np.random.rand(3)*2000, velocity = np.random.uniform(-1,1,3)*10))
+
+#x.add_anchor(pe.Anchor(position=[500, 1000, 0], mass = 300))
+
+# x.add_particle(pe.Particle(mass = 20, position = np.array([1000, 1500, 0]), velocity = np.array([20, 0, 0])))
+# x.add_particle(pe.Particle(mass = 30, position = np.array([1000, 800, 0]), velocity = np.array([0, -40, 0])))
+# x.add_particle(pe.Particle(mass = 20, position = np.array([990, 800, 0]), velocity = np.array([0, 40, 0])))
+# x.add_spring_link(x.particles[0], x.particles[1], k=30, l0=80)
+
+
+# s1 = pe.Particle(mass = 20, position = np.array([990, 800, 0]), velocity = np.array([0, 0, 0]))
+# s2 = pe.Particle(mass = 30, position = np.array([1010, 800, 0]), velocity = np.array([0, 0, 0]))
+# x.add_springed_particles(s1, s2, k=10, l0=50, damping=0.5)
+
+#x.add_body(pe.Ball(position=[1000, 1000, 0], mass = 20, velocity=[0,0,0], radius=300, charge =0,drag_coeff=3,elasticity=0, N_particles=200, damping=0, name="",environment=x))
+x.add_body(pe.AnchoredCloth(corner=[750,500,0], mass=0.5, k=30,damping=0.4, N_width=10, N_length=20, cell_size=40, drag=0.2, environment=x))
+
+#add springed particles
+
+
+#FORCE
+x.add_spring(softening_length=0)
+x.add_uniform_force_field(F=[30, 0,80])
+
+#x.add_gravity(G=10000, softening_length=5)
+
+# x.add_uniform_acceleration_field(a=[0.0, 98,0.0])
+#x.add_drag()
+
+pe.Visualize(x).show(Particles=True, Velocities=False,Springs=True, show_fps=True)
