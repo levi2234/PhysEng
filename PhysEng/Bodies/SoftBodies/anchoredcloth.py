@@ -5,7 +5,7 @@ import numpy as np
 class AnchoredCloth():
     
 
-    def __init__(self, corner =[0,0,0], mass=1, k=1, damping=0, drag=0.2,  cell_size= 1, N_width= 30, N_length=30, environment=None):
+    def __init__(self, corner =[0,0,0], mass=1, k=1, damping=0, drag=0.2, charge=0,  cell_size= 1, N_width= 30, N_length=30, environment=None):
         self.__name__ = "Anchored Cloth"
         
         self.N_width = N_width
@@ -15,6 +15,7 @@ class AnchoredCloth():
         self.mass = mass
         self.k =k
         self.damping = damping
+        self.charge = charge
         self.drag = drag
         self.particles = []
         self.spring_links = []

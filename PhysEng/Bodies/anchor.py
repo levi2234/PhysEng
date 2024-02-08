@@ -35,7 +35,7 @@ class Anchor():
     
     @property
     def force(self):
-        return self._force
+        return np.array([0,0,0])
     
     @force.setter #ignore attempts to change force
     def force(self, value):
@@ -77,7 +77,3 @@ class Anchor():
     def __str__(self):
         return f'Anchor at {self.position} with mass {self.mass} and radius {self.radius}'
     
-    
-anchor = Anchor([0,0,0], 1, 0.1)
-anchor.position = [1,1,1]
-print(anchor.position)

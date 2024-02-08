@@ -1,7 +1,7 @@
 
 from PhysEng.Bodies.spring_link import Spring_link
 from matplotlib import pyplot as plt
-from PhysEng.Integrators import ph4
+from PhysEng.Integrators import euler
 
 
 
@@ -22,7 +22,8 @@ class Environment():
         self.time = 0 #seconds
         self.dt = 0.01 #seconds
         self.dimensions = 3 #dimensions
-        self.integrator = ph4(self) #integrator set to ph4 by default
+        self.integrator = euler(self) #integrator set to ph4 by default
+        
         
         
         
@@ -62,29 +63,33 @@ class Environment():
         force.environment = self
         self.forces.append(force)
         
-    def add_spring(self, softening_length=0):
+    def add_spring(self, softening_length=0, active=True):
         from PhysEng.Forces.spring import Spring
-        self.add_force(Spring(self, softening_length=softening_length))
+        self.add_force(Spring(self, softening_length=softening_length, active=active))
         
-    def add_uniform_force_field(self, F=[0,-981,0]):
+    def add_uniform_force_field(self, F=[0,-981,0], active=True):
         from PhysEng.Forces.uniform_force_field import UniformForceField
-        self.add_force(UniformForceField(self, F))
+        self.add_force(UniformForceField(self, F, active=active))
         
-    def add_uniform_acceleration_field(self, a=[0,-9.81,0]):
+    def add_uniform_acceleration_field(self, a=[0,-9.81,0], active=True):
         from PhysEng.Forces.uniform_acceleration_field import UniformAccelerationField
-        self.add_force(UniformAccelerationField(self, a))
+        self.add_force(UniformAccelerationField(self, a, active=active))
         
-    def add_gravity(self, G= 6.67430e-11, softening_length=0):
+    def add_gravity(self, G= 6.67430e-11, softening_length=0, active=True):
         from PhysEng.Forces.gravity import Gravity
-        self.add_force(Gravity(self, G, softening_length=softening_length))
+        self.add_force(Gravity(self, G, softening_length=softening_length, active=active))
         
-    def add_coulomb(self, k=8.9875517873681764e9):
+    def add_coulomb(self, k=8.9875517873681764e9, active=True):
         from PhysEng.Forces.coulomb import Coulomb
-        self.add_force(Coulomb(self, k))
+        self.add_force(Coulomb(self, k, active=active))
         
-    def add_drag(self):
+    def add_drag(self, active=True):
         from PhysEng.Forces.drag import Drag
-        self.add_force(Drag(self))
+        self.add_force(Drag(self, active=active))
+        
+    def add_field(self, field_function, active=True): 
+        from PhysEng.Forces.custom_field import CustomField
+        self.add_force(CustomField(field_function, active=active))
         
     def add_spring_link(self, Spring_link):
         
@@ -104,6 +109,8 @@ class Environment():
             i.update()
         
         self.integrator.update()
+        #reset forces of all particles
+
         
         self.time += self.dt
         

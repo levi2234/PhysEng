@@ -4,7 +4,7 @@ import numpy as np
 import math
 
 class Ball():
-    def __init__(self, position=[0,0,0], mass =1, velocity=[0,0,0], radius=0, charge =0,drag_coeff=0,elasticity=0, N_particles=20, damping=0.4, name="",environment=None)->None:
+    def __init__(self, position=[0,0,0], mass =1, velocity=[0,0,0], radius=100, charge =0,drag_coeff=0,elasticity=0, N_particles=20, damping=0.4, name="",environment=None)->None:
         
         self.environment = environment
         self.position = position
@@ -65,7 +65,7 @@ class Ball():
         for i in self.particles:
             for j in self.nearest_neighbours(i, 4):
                 if i != j[0]:
-                    self.spring_links.append(Spring_link(i, j[0], k=1, l0=np.linalg.norm(i.position-j[0].position)+10, damping=self.damping))
+                    self.spring_links.append(Spring_link(i, j[0], k=1, l0=np.linalg.norm(i.position-j[0].position), damping=self.damping))
             
             
         #add particles to environment

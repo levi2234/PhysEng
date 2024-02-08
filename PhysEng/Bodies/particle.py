@@ -15,6 +15,8 @@ class Particle():
         self.charge = charge
         self.drag_coeff = drag_coeff
         self.fixed= False
+        self.previous_force = np.array([0, 0, 0])
+        self.jerk = (self.force - self.previous_force) / self.environment.dt
 
         
     def __str__(self) -> str:
