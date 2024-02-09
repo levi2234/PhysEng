@@ -9,13 +9,13 @@ def velocity_to_color(velocity, max_velocity=1):
         color = [0, 0, 0]
     
     return color
-class ShowVelocities():
+class ShowVelocityVector():
     
     def __init__(self, visualize, environment) -> None:
         self.visualize = visualize
         self.environment = environment
         self.active = False
-        self.name = "Velocities"
+        self.name = "Velocity Vectors"
         self.max_velocity = 100
         pass
     

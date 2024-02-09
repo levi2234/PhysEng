@@ -10,7 +10,7 @@ def viewport_scroll_zoom(viz, event):
 
     # Calculate the zoom scale
     zoomfactor = 0.02
-    zoom_scale = (viz.simulationwidth[1] - viz.simulationwidth[0]) * zoomfactor
+    
 
     if event.button == 4:  # If the mouse wheel is scrolled up
         viz.simulationwidth = [sim_x - (sim_x - viz.simulationwidth[0]) * (1 - zoomfactor), sim_x + (viz.simulationwidth[1] - sim_x) * (1 - zoomfactor)]

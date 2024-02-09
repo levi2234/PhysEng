@@ -1,5 +1,8 @@
 import pygame as pg
 import PhysEng as pe
+from PhysEng.Visualize import Visualize
+
+import PhysEng as pe
 import numpy as np
 
 
@@ -26,12 +29,13 @@ x = pe.Environment()
 x.set_integrator(pe.verlet())
 
 #adding PARTICLES -------
-for _ in range(400):
-    x.add_particle(pe.Particle(mass = np.random.randint(1,15), position = np.random.rand(3) * 60)) 
+for _ in range(2000):
+    x.add_particle(pe.Particle(mass = np.random.randint(1,15), position = np.random.rand(3) * 60, radius=5)) 
 
-x.add_field(velocity_field_lorenz_centered, active=True, name="Lorenz \n Attractor")
+x.add_field(velocity_field_lorenz_centered, active=True, name="Lorenz Attractor")
 
-vis =pe.Visualize(x)
+
+vis =Visualize(x)
 vis.simulationheight = [-40, 40]
 vis.simulationwidth = [-40, 40]
 vis.show()

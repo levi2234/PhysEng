@@ -19,7 +19,7 @@ class ShowFPS():
             self.prev_time = current_time
             font = pg.font.Font(None, 20)
             text = font.render("FPS: "+str(int(fps)), True, (255, 255, 255))
-            self.visualize.screen.blit(text, (100, 0))
+            self.visualize.screen.blit(text, (360, 0))
             pass
         else:
             pass

@@ -7,7 +7,7 @@ class ShowForces():
         self.visualize = visualize
         self.environment = environment
         self.active = False
-        self.name = "Forces"
+        self.name = "Force Vectors"
         pass
     
     def show(self):

@@ -1,24 +1,21 @@
-
 from PhysEng.Bodies.spring_link import Spring_link
 from matplotlib import pyplot as plt
 from PhysEng.Integrators import euler
-
-
-
+from  PhysEng.Collisions.ParticleParticleCollision import ParticleParticleCollision
 
 
 class Environment():
     
     def __init__(self) -> None:
         self. __name__ = "Environment"
-        self. __version__ = "0.0.3"
+        self. __version__ = "0.0.7"
         
         self.particles = [] #particles
         self.bodies = [] #bodies
         self.forces = [] #forces	
-        self.constraints = [] #constraints
         self.spring_links = [] #spring links between particles
-        self.collision = None
+        self.collision_resolvers = []#collision detectors
+        
         self.time = 0 #seconds
         self.dt = 0.01 #seconds
         self.dimensions = 3 #dimensions
@@ -109,6 +106,8 @@ class Environment():
             i.update()
         
         self.integrator.update()
+        
+
         #reset forces of all particles
 
         
@@ -120,8 +119,6 @@ class Environment():
     def step(self):
         self.update()
         
-        
-        
     
     def run(self, steps):
         for i in range(steps):
@@ -131,9 +128,6 @@ class Environment():
         for i in self.particles:
             plt.scatter(i.position[0], i.position[1], c="red")
         plt.show()
-
-        
-        
 
     def __str__(self) -> str:
         return(self.__name__ + " " + self.__version__)
