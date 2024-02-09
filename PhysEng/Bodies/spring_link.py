@@ -1,7 +1,6 @@
 import numpy as np
 
 class Spring_link():
-    
     def __init__(self, particle1, particle2, k=1, l0=1, damping=0) -> None:
         self.__name__ = "Spring Link"
         self.__version__ = "0.0.1"

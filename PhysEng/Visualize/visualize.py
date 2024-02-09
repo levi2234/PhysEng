@@ -1,5 +1,6 @@
 import pygame as pg
 
+
 from PhysEng.Visualize.Elements.ShowParticles import ShowParticles
 from PhysEng.Visualize.Elements.ShowVelocities import ShowVelocities
 from PhysEng.Visualize.Elements.ShowSprings import ShowSprings
@@ -36,7 +37,7 @@ class Visualize():
 #-------------MAIN SETUP----------------
         pg.init()
         size = (self.screenwidth, self.screenheight)
-        screen = pg.display.set_mode(size)
+        screen = pg.display.set_mode(size, pg.RESIZABLE)
         self.screen = screen
         pg.display.set_caption(self.name)
         

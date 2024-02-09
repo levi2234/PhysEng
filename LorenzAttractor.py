@@ -26,12 +26,11 @@ x = pe.Environment()
 x.set_integrator(pe.verlet())
 
 #adding PARTICLES -------
-for _ in range(5):
+for _ in range(400):
     x.add_particle(pe.Particle(mass = np.random.randint(1,15), position = np.random.rand(3) * 60)) 
 
 x.add_field(velocity_field_lorenz_centered, active=True, name="Lorenz \n Attractor")
 
-#x.add_field(velocity_field_lorenz_centered, active=True)
 vis =pe.Visualize(x)
 vis.simulationheight = [-40, 40]
 vis.simulationwidth = [-40, 40]
