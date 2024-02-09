@@ -30,7 +30,7 @@ x.set_integrator(pe.verlet())
 
 #adding PARTICLES -------
 for _ in range(2000):
-    x.add_particle(pe.Particle(mass = np.random.randint(1,15), position = np.random.rand(3) * 60, radius=5)) 
+    x.add_particle(pe.Particle(mass = np.random.randint(1,15), position = np.random.rand(3) * 60, radius=2)) 
 
 x.add_field(velocity_field_lorenz_centered, active=True, name="Lorenz Attractor")
 

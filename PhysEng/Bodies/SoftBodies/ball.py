@@ -58,7 +58,7 @@ class Ball():
         
         #add particles
         for i in self.fibonacci_sphere():
-            self.particles.append(Particle(position=i, mass=self.mass/self.number_of_particles, velocity=self.velocity, radius=0, charge=self.charge, drag_coeff=self.drag, name=self.name, environment=self.environment))
+            self.particles.append(Particle(position=i, mass=self.mass/self.number_of_particles, velocity=self.velocity, radius=5, charge=self.charge, drag_coeff=self.drag, name=self.name, environment=self.environment))
             
         #add spring links
         #add springs between nearest neighbours without repetition

@@ -8,6 +8,7 @@ from PhysEng.Visualize.Elements.ShowFPS import ShowFPS
 from PhysEng.Visualize.Elements.ShowVelocityColor import ShowVelocityColor
 from PhysEng.Visualize.Elements.ShowAxes import ShowAxes
 from PhysEng.Visualize.Elements.ShowForceVector import ShowForces
+from PhysEng.Visualize.Elements.ShowTrail import ShowTrail
 from PhysEng.Visualize.pygametoxy import pygame_to_xy
 from PhysEng.Visualize.Events.EventHandler import EventHandler
 from PhysEng.Visualize.Menu.menubar import MenuBar
@@ -19,10 +20,12 @@ class Visualize():
         self.simulationwidth, self.simulationheight = [0,60], [0,60] #dimensions of the simulation that are seen
         
         self.elements = [   ShowParticles(self, self.environment),
+                            ShowTrail(self, self.environment),
                             ShowSprings(self, self.environment),
                             ShowVelocityVector(self, self.environment),
                             ShowVelocityColor(self, self.environment),
-                            ShowForces(self, self.environment),
+                            ShowForces(self, self.environment)
+                            
                             
         ]
         
@@ -45,28 +48,9 @@ class Visualize():
         screen = pg.display.set_mode(size, pg.RESIZABLE)
         self.screen = screen
         pg.display.set_caption(self.name)
+        
+        
         self.Menubar = MenuBar(self)
-        
-
-# # ----------------ELEMENT TOGGLE Buttons----------------
-#         elementbuttons = []
-#         for val, count in enumerate(self.elements):
-#             elementbuttons.append(SwitchButton( [self.screenwidth-100, 50 + 60*val], linked_element= self.elements[val], visualizer=self))
-#             pass
-
-            
-# #-----------------FORCE TOGGLE BUTTONS----------------
-#         forcebuttons = []
-        
-#         #add text label
-#         font = pg.font.Font(None, 36)
-#         text = font.render("Forces", True, (255, 255, 255))
-
-#         #screen.blit(text, (self.screenwidth-100, 250))
-        
-#         for count, val in enumerate(self.environment.forces):
-#             forcebuttons.append(SwitchButton([self.screenwidth-100, 410 + 60*count], linked_element= self.environment.forces[count], visualizer=self))
-#             pass
         
         
 #-------------MAIN LOOP----------------

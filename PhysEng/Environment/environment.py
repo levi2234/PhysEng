@@ -56,37 +56,39 @@ class Environment():
         self.integrator = integrator
         
     #add force functions ----------------------------------------
-    def add_force(self, force):
+    def add_force(self, force, name=None):
         force.environment = self
+        if name:
+            force.name = name
         self.forces.append(force)
         
-    def add_spring(self, softening_length=0, active=True):
+    def add_spring(self, softening_length=0, active=True, name=None):
         from PhysEng.Forces.spring import Spring
-        self.add_force(Spring(self, softening_length=softening_length, active=active))
+        self.add_force(Spring(self, softening_length=softening_length, active=active), name=name)
         
-    def add_uniform_force_field(self, F=[0,-981,0], active=True):
+    def add_uniform_force_field(self, F=[0,-981,0], active=True, name=None):
         from PhysEng.Forces.uniform_force_field import UniformForceField
-        self.add_force(UniformForceField(self, F, active=active))
+        self.add_force(UniformForceField(self, F, active=active), name=name)
         
-    def add_uniform_acceleration_field(self, a=[0,-9.81,0], active=True):
+    def add_uniform_acceleration_field(self, a=[0,-9.81,0], active=True, name=None):
         from PhysEng.Forces.uniform_acceleration_field import UniformAccelerationField
-        self.add_force(UniformAccelerationField(self, a, active=active))
+        self.add_force(UniformAccelerationField(self, a, active=active), name=name)
         
-    def add_gravity(self, G= 6.67430e-11, softening_length=0, active=True):
+    def add_gravity(self, G= 6.67430e-11, softening_length=0, active=True, name=None):
         from PhysEng.Forces.gravity import Gravity
-        self.add_force(Gravity(self, G, softening_length=softening_length, active=active))
+        self.add_force(Gravity(self, G, softening_length=softening_length, active=active), name=name)
         
-    def add_coulomb(self, k=8.9875517873681764e9, active=True):
+    def add_coulomb(self, k=8.9875517873681764e9, active=True, name=None):
         from PhysEng.Forces.coulomb import Coulomb
-        self.add_force(Coulomb(self, k, active=active))
+        self.add_force(Coulomb(self, k, active=active),name=name)
         
-    def add_drag(self, active=True):
+    def add_drag(self, active=True, name=None):
         from PhysEng.Forces.drag import Drag
-        self.add_force(Drag(self, active=active))
+        self.add_force(Drag(self, active=active), name=name)
         
-    def add_field(self, field_function, name = "Custom Field",active=True): 
+    def add_field(self, field_function, active=True, name=None): 
         from PhysEng.Forces.custom_field import CustomField
-        self.add_force(CustomField(field_function, active=active, name=name))
+        self.add_force(CustomField(field_function, active=active), name=name)
         
     def add_spring_link(self, Spring_link):
         

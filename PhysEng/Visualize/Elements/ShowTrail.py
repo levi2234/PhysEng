@@ -9,21 +9,20 @@ def velocity_to_color(velocity, max_velocity=1):
         color = [0, 0, 0]
     
     return color
-class ShowVelocityVector():
+class ShowTrail(
+):
     
     def __init__(self, visualize, environment) -> None:
         self.visualize = visualize
         self.environment = environment
         self.active = False
-        self.name = "Velocity Vectors"
+        self.name = "Trail"
         self.max_velocity = 100
         pass
     
     def show(self):
         if self.active:
+            dt = self.environment.dt
             for i in self.environment.particles:
-                
-                pg.draw.line(self.visualize.screen, (0, 0, 255), xy(self.visualize,i.position[0], i.position[1]), xy(self.visualize,i.position[0]+i.velocity[0], i.position[1]+i.velocity[1]), 3)
-
-                
+                pg.draw.line(self.visualize.screen, (255, 255, 255), xy(self.visualize,i.position[0], i.position[1]), xy(self.visualize,i.position[0]+i.velocity[0]* dt, i.position[1]+i.velocity[1]* dt), i.radius)
         pass

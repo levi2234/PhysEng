@@ -7,6 +7,7 @@ from PhysEng.Visualize.Events.update_screen_size import update_screen_size
 from PhysEng.Visualize.Events.viewport_drag_state import viewport_drag_state
 from PhysEng.Visualize.Events.viewport_drag import viewport_drag
 from PhysEng.Visualize.Events.update_screen_size import update_screen_size
+
 def EventHandler(viz, event):
     
 

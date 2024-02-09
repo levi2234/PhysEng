@@ -11,12 +11,13 @@ class ShowParticles():
         self.active = True
         self.name = "Particles"
         
+        
         pass
     
     def show(self):
         if self.active:
             for i in self.environment.particles:
                 
-                radius = 5#abs(xypg(self.visualize,i.radius, 0)[0])
+                radius = i.radius
                 pg.draw.circle(self.visualize.screen, i.color, xypg(self.visualize,i.position[0], i.position[1]), radius)
         pass
