@@ -1,29 +1,34 @@
 import pygame as pg
-import pygame_gui as pgui
-import time
-import numpy as np
-from PhysEng.Visualize.ShowParticles import ShowParticles
-from PhysEng.Visualize.ShowVelocities import ShowVelocities
-from PhysEng.Visualize.ShowSprings import ShowSprings
-from PhysEng.Visualize.ShowFPS import ShowFPS
-from PhysEng.Visualize.SwitchButton import SwitchButton
-from PhysEng.Visualize.ShowAxes import ShowAxes
-from PhysEng.Visualize.ShowForces import ShowForces
+
+from PhysEng.Visualize.Elements.ShowParticles import ShowParticles
+from PhysEng.Visualize.Elements.ShowVelocities import ShowVelocities
+from PhysEng.Visualize.Elements.ShowSprings import ShowSprings
+from PhysEng.Visualize.Elements.ShowFPS import ShowFPS
+from PhysEng.Visualize.Elements.SwitchButton import SwitchButton
+from PhysEng.Visualize.Elements.ShowAxes import ShowAxes
+from PhysEng.Visualize.Elements.ShowForces import ShowForces
+from PhysEng.Visualize.pygametoxy import pygame_to_xy
+from PhysEng.Visualize.Events.EventHandler import EventHandler
 
 class Visualize():
     def __init__(self,environment, name="Simulation") -> None:
         self.environment = environment
-        self.screenwidth, self.screenheight = 1400, 700
-        self.simulationwidth, self.simulationheight = [0,2000], [0,2000]
+        self.screenwidth, self.screenheight = 1500, 720
+        self.simulationwidth, self.simulationheight = [0,60], [0,60]
         self.elements = [   ShowParticles(self, self.environment),
                             ShowVelocities(self, self.environment),
+                            ShowForces(self, self.environment),
                             ShowSprings(self, self.environment),
                             ShowFPS(self, self.environment),
-                            ShowAxes(self, self.environment),
-                            ShowForces(self, self.environment)
+                            ShowAxes(self, self.environment)
+                            
         ]
         self.screen = None
         self.name = name
+        self.drag = False
+        self.running = True
+        self.maxfps = 1000
+        
         pass
     
     def show(self):
@@ -34,10 +39,7 @@ class Visualize():
         screen = pg.display.set_mode(size)
         self.screen = screen
         pg.display.set_caption(self.name)
-        running = True
         
-        #setup GUI
-        self.manager = pgui.UIManager(size)
         
 
 # ----------------ELEMENT TOGGLE Buttons----------------
@@ -62,15 +64,24 @@ class Visualize():
         
         
 #-------------MAIN LOOP----------------
-        while running:
-            screen.fill((0, 0, 0)) #reset screen
-            for event in pg.event.get():
-                if event.type == pg.QUIT:
-                    running = False
+        while self.running:
             
+            screen.fill((0, 0, 0)) #reset screen
+            #limit max fps to self.maxfps
+            pg.time.Clock().tick(self.maxfps)
+            
+            
+            #process events
+            for event in pg.event.get():
+                
+                EventHandler(self, event)
+            
+            #propagate simulation
             self.environment.step()
             
-            #load all elements
+            
+            
+            #load all UI elements
             for i in self.elements:
                 i.show()
             

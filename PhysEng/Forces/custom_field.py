@@ -5,9 +5,8 @@ class CustomField():
         self.active = active
         self.name = name
 
-    
     def update(self):
-        if self.active == False:
+        if not self.active:
             return
         
         for i in self.environment.particles:

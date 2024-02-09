@@ -13,5 +13,5 @@ class ShowParticles():
     def show(self):
         if self.active:
             for i in self.environment.particles:
-                pg.draw.circle(self.visualize.screen, (255, 255, 255), xy(self.visualize,i.position[0], i.position[1]), 5)
+                pg.draw.circle(self.visualize.screen, i.color, xy(self.visualize,i.position[0], i.position[1]), 5)
         pass
