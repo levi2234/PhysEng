@@ -9,9 +9,17 @@ from PhysEng.Visualize.Elements.ShowVelocityColor import ShowVelocityColor
 from PhysEng.Visualize.Elements.ShowAxes import ShowAxes
 from PhysEng.Visualize.Elements.ShowForceVector import ShowForces
 from PhysEng.Visualize.Elements.ShowTrail import ShowTrail
+from PhysEng.Visualize.Elements.ShowPlayPause import ShowPlayPause
 from PhysEng.Visualize.pygametoxy import pygame_to_xy
 from PhysEng.Visualize.Events.EventHandler import EventHandler
 from PhysEng.Visualize.Menu.menubar import MenuBar
+
+#integrators 
+from PhysEng.Visualize.Elements.Enable_Euler import EnableEuler
+from PhysEng.Visualize.Elements.Enable_RK4 import EnableRK4
+from PhysEng.Visualize.Elements.Enable_Verlet import EnableVerlet
+from PhysEng.Visualize.Elements.Enable_Leapfrog import EnableLeapfrog
+
 
 class Visualize():
     def __init__(self,environment, name="Simulation") -> None:
@@ -29,14 +37,22 @@ class Visualize():
                             
         ]
         
-        self.viewport_elements = [  ShowFPS(self, self.environment),
+        self.viewport_elements = [ ShowPlayPause(self, self.environment), 
+                                    ShowFPS(self, self.environment),
                                     ShowAxes(self, self.environment)]
+        
+        self.integrators = [ EnableEuler(self, self.environment),
+                             EnableRK4(self, self.environment),
+                             EnableVerlet(self, self.environment),
+                             EnableLeapfrog(self, self.environment)]
         self.screen = None
         self.camera_vector = [0,0,1] #unit vector pointing in the direction of the camera
         self.name = name
         self.drag = False
-        self.running = True
+        self.rendering = True
+        self.simulating = False
         self.maxfps = 500
+        
         
         pass
     
@@ -54,7 +70,7 @@ class Visualize():
         
         
 #-------------MAIN LOOP----------------
-        while self.running:
+        while self.rendering:
             
             screen.fill((0, 0, 0)) #reset screen
             #limit max fps to self.maxfps
@@ -63,7 +79,8 @@ class Visualize():
             self.Menubar.draw()
 
             #propagate simulation
-            self.environment.step()
+            if self.simulating:
+                self.environment.step()
             
             #load all simulation elements (particles, forces, etc.)
             for i in self.elements:
@@ -72,6 +89,11 @@ class Visualize():
             #load all viewport elements (fps, axes, etc.)
             for i in self.viewport_elements:
                 i.show()
+            
+            # #load all integrators
+            for i in self.integrators:
+                i.show()
+
                 
             
              
@@ -80,18 +102,6 @@ class Visualize():
             #process events
             for event in pg.event.get():
                 EventHandler(self, event)
-    
-            
-            
-            
-            
-            # #show all buttons
-            # for i in elementbuttons:
-            #     i.draw()
-                
-            # for i in forcebuttons:
-            #     i.draw()  
-
             
             
             pg.display.flip()

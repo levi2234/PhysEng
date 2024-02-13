@@ -1,8 +1,10 @@
 import numpy as np
 
 class verlet():
-    def __init__(self) -> None:
-        self.environment = None    
+    def __init__(self, environment=None,name="Verlet") -> None:
+        self.environment = environment   
+        self.name = name 
+
         
     def update(self):
         for i in self.environment.particles:

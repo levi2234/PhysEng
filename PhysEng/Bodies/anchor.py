@@ -11,6 +11,7 @@ class Anchor():
         self._velocity = np.array(velocity)
         self._radius = radius
         self._force = np.array([0, 0, 0])
+        self.color = [0,0,0]    
         self.environment = environment
         self._charge = charge
         self._drag_coeff = drag_coeff

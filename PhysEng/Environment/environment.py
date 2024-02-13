@@ -86,12 +86,12 @@ class Environment():
         from PhysEng.Forces.drag import Drag
         self.add_force(Drag(self, active=active), name=name)
         
-    def add_field(self, field_function, active=True, name=None): 
+    def add_field(self, field_function, active=True, name=None, **kwargs): 
         from PhysEng.Forces.custom_field import CustomField
-        self.add_force(CustomField(field_function, active=active), name=name)
+        self.add_force(CustomField(field_function, active=active, **kwargs), name=name)
         
     def add_spring_link(self, Spring_link):
-        
+
         Spring_link.environment = self
         self.spring_links.append(Spring_link)
         

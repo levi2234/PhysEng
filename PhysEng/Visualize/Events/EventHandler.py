@@ -7,6 +7,7 @@ from PhysEng.Visualize.Events.update_screen_size import update_screen_size
 from PhysEng.Visualize.Events.viewport_drag_state import viewport_drag_state
 from PhysEng.Visualize.Events.viewport_drag import viewport_drag
 from PhysEng.Visualize.Events.update_screen_size import update_screen_size
+from PhysEng.Visualize.Events.playpausespacebar import playpausespacebar
 
 def EventHandler(viz, event):
     
@@ -35,6 +36,11 @@ def EventHandler(viz, event):
     if  (event.type == pg.K_LSHIFT):
         #print("Shift pressed")
         viewport_drag_state(viz, event)
+        
+    #spacebar to play/pause
+    if event.type == pg.KEYDOWN:
+        playpausespacebar(viz, event)
+
 
 
 
