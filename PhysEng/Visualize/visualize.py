@@ -33,8 +33,6 @@ class Visualize():
                             ShowVelocityVector(self, self.environment),
                             ShowVelocityColor(self, self.environment),
                             ShowForces(self, self.environment)
-                            
-                            
         ]
         
         self.viewport_elements = [ ShowPlayPause(self, self.environment), 

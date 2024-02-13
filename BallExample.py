@@ -23,9 +23,10 @@ x.set_integrator(pe.verlet())
 
 # x.add_spring_link(spring1)
 # x.add_spring_link(spring2)
-x.add_body(pe.Ball(position=[1000, 1000, 0], mass = 20, velocity=[0,0,0], radius=300, charge =0,drag_coeff=3,elasticity=0, N_particles=200, damping=0.3, name="",environment=x))
+#x.add_body(pe.Ball(position=[1000, 1000, 0], mass = 20, velocity=[0,0,0], radius=300, charge =0,drag_coeff=3,elasticity=0, N_particles=200, damping=0.3, name="",environment=x))
 #x.add_particle(pe.Particle(mass = 300, position = np.array([1000, 1000, 0]), velocity = np.array([20, 0, 0])))
 #add springed particles
+x.add_body(pe.Heart(position=[1000, 1000, 0], mass = 20, velocity=[0,0,0], radius=300, charge =0,drag_coeff=3,elasticity=0, N_particles=200, damping=0.4, name="",environment=x))   
 def velocity_field(particle):
     #sine wave 
     particle.force[0] += 100*np.sin((particle.position[0]))

@@ -2,8 +2,8 @@
 import numpy as np
 class Particle():
     
-    def __init__(self, position=[0,0,0], mass =0.5, velocity=[0,0,0], radius=0, charge =0,drag_coeff=0, name="", environment=None, **kwargs) -> None:
-        self. __name__ = "Particle" 
+    def __init__(self, position=[0,0,0], mass =0.5, velocity=[0,0,0], radius=0, charge =0,drag_coeff=0, name="Particle", color=[255,255,255], environment=None, **kwargs) -> None:
+        self. __name__ = name
         self. __version__ = "0.0.1"
         
         self.mass = mass
@@ -16,7 +16,7 @@ class Particle():
         self.drag_coeff = drag_coeff
         self.fixed= False
         self.previous_force = np.array([0, 0, 0])
-        self.color = (255, 255, 255)
+        self.color = color
         
         #self.jerk = (self.force - self.previous_force) / self.environment.dt
 

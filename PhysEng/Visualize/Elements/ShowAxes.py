@@ -31,8 +31,10 @@ class ShowAxes():
         
         number_of_ticks = 20
         
-        tick_values_x = np.round(np.linspace(sw[0], sw[1], number_of_ticks),1)
-        tick_values_y = np.round(np.linspace(sh[0], sh[1], number_of_ticks),1)
+        tick_values_x = np.round(np.linspace(sw[0], sw[1], number_of_ticks), 1)
+        tick_values_y = np.round(np.linspace(sh[0], sh[1], number_of_ticks), 1)
+
+
         tick_locations_x = np.linspace(0, scw, number_of_ticks)
         tick_locations_y = np.linspace(0, sch, number_of_ticks)
         
