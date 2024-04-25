@@ -5,3 +5,4 @@ from .coulomb import Coulomb
 from .drag import Drag
 from .spring import Spring
 from .custom_field import CustomField
+from .gravityKDtree import GravityKDTree

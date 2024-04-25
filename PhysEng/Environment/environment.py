@@ -86,6 +86,10 @@ class Environment():
         from PhysEng.Forces.drag import Drag
         self.add_force(Drag(self, active=active), name=name)
         
+    def add_gravity_KDtree(self, G=6.67430e-11, softening_length=0, active=True, name=None):
+        from PhysEng.Forces.gravityKDtree import GravityKDTree
+        self.add_force(GravityKDTree(self, G, softening_length=softening_length, active=active), name=name)
+        
     def add_field(self, field_function, active=True, name=None, **kwargs): 
         from PhysEng.Forces.custom_field import CustomField
         self.add_force(CustomField(field_function, active=active, **kwargs), name=name)

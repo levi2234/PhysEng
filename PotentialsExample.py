@@ -23,7 +23,7 @@ def velocity_field_lorenz_centered(particle, sigma=10, rho=28, beta=8/3, center_
     particle.velocity[0] = (dx_dt + center_x - particle.position[0])
     particle.velocity[1] = dy_dt + center_y - particle.position[1]
     particle.velocity[2] = dz_dt  # Z doesn't need centering for 2D viewports; adjust if needed for 3D
-    import numpy as np
+    
 
 def apply_mobius_strip_force(particle, strip_width=4, center=[0, 0, 0], radius=40, strength=100, active=True, **kwargs):
     """
@@ -182,13 +182,13 @@ x.set_integrator(pe.verlet())
 for _ in range(2000):
     x.add_particle(pe.Particle(mass = np.random.randint(1,15), position = np.random.rand(3) * 200 -100, radius=2)) 
 
+
 x.add_field(velocity_field_lorenz_centered, active=False, name="Lorenz Attractor")
 x.add_field(velocity_field_rossler_centered, active=False, name="Rossler Map")
 x.add_field(velocity_field_sine_wave, active=False, name="Sine Wave")
 x.add_field(apply_mobius_strip_force, active=False, name="Mobius Strip")
 x.add_field(apply_gravitational_well_force, active=False, name="Grav Well")
 x.add_field(apply_gravitational_well_force_cursor, active=False, name="Grav Well Cursor")
-
 
 
 

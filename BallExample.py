@@ -23,10 +23,10 @@ x.set_integrator(pe.verlet())
 
 # x.add_spring_link(spring1)
 # x.add_spring_link(spring2)
-#x.add_body(pe.Ball(position=[1000, 1000, 0], mass = 20, velocity=[0,0,0], radius=300, charge =0,drag_coeff=3,elasticity=0, N_particles=200, damping=0.3, name="",environment=x))
+x.add_body(pe.Ball(position=[1000, 1000, 0], mass = 20, velocity=[0,0,0], radius=300, charge =0,drag_coeff=3,elasticity=0, N_particles=200, damping=0.3, name="",environment=x))
 #x.add_particle(pe.Particle(mass = 300, position = np.array([1000, 1000, 0]), velocity = np.array([20, 0, 0])))
 #add springed particles
-x.add_body(pe.Heart(position=[1000, 1000, 0], mass = 20, velocity=[0,0,0], radius=300, charge =0,drag_coeff=3,elasticity=0, N_particles=200, damping=0.4, name="",environment=x))   
+#x.add_body(pe.Heart(position=[1000, 1000, 0], mass = 20, velocity=[0,0,0], radius=300, charge =0,drag_coeff=3,elasticity=0, N_particles=200, damping=0.4, name="",environment=x))   
 def velocity_field(particle):
     #sine wave 
     particle.force[0] += 100*np.sin((particle.position[0]))
@@ -35,7 +35,7 @@ def velocity_field(particle):
     pass
 x.add_field(velocity_field, active=False)
     
-#x.add_gravity(G=100000, softening_length=5, active=False)
+x.add_gravity(G=100000, softening_length=5, active=False)
 x.add_uniform_acceleration_field(a=[0.0, 98,0.0], active=False, name="Gravity")
 x.add_uniform_force_field(F=[200, 400,0], active=False, name="Wind")
 x.add_spring(softening_length=1)

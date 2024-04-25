@@ -29,7 +29,7 @@ class AnchoredCloth():
         self.clothmesh = np.zeros((self.N_width, self.N_length), dtype=Particle)
         for i in range(self.N_width):
             for j in range(self.N_length):
-                particle = Particle([self.corner[0] + i*self.cell_size, self.corner[1]+j*self.cell_size, self.corner[2]], mass=self.mass, environment=self.environment)
+                particle = Particle([self.corner[0] + i*self.cell_size, self.corner[1]+j*self.cell_size, self.corner[2]], mass=self.mass, color=[255,255,255] ,environment=self.environment)
                 self.particles.append(particle)
                 self.clothmesh[i,j] = particle
                 

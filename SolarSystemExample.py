@@ -45,5 +45,6 @@ for i in bodies:
 
 #add the gravitational force to the environment
 x.add_gravity(G=c.G.value, softening_length=0)
+#x.add_gravity_oct(G=c.G.value, softening_length=0)
 
 vis.show()
