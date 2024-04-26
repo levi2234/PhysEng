@@ -6,7 +6,7 @@ import imageio as io
 
 
 class Renderer:
-    def __init__(self, fps=30, output="output.mp4", codec="libx264", framelimit=300):
+    def __init__(self, fps=30, output="output.gif", codec="libx264", framelimit=300):
         self.fps = fps
         self.output = output
         self.frames = deque([])

@@ -1,5 +1,33 @@
-# PhysEng
+# PhysEng - A 100% Python Physics Engine
 
+The PhysEng library is a 100% Python physics engine that allows you to simulate physical systems in 3D. The library is designed to be easy to use and flexible, allowing you to create complex simulations with minimal effort. The library is built on top of the NumPy library, which provides fast and efficient numerical computations.
+
+![AA Simple Demonstration of Multiple Velocity and Force fields](Demo.gif)
+
+
+
+## Getting Started
+  ### Installation
+
+
+  * Step 1: Clone the repository
+
+  * Step 2: Install the library using pip:
+
+
+  This library is verified to run on Python 3.10 and above. 
+  While this library is a standalone library, it is recommended to install the following dependencies to ensure compatibility with the library. The phyiscs engine is completely written in python however it requires some dependancies to visualize and render the simulation.
+  ```bash
+  pip install ffmpeg-python==0.2.0
+  pip install numpy==1.26.4
+  pip install pygame==2.5.2
+  pip install ffmpeg-python==0.2.0
+  pip install scipy==1.10.1
+  pip install matplotlib==3.5.1
+  pip install imageio==2.33.1
+  pip install imageio-ffmpeg==0.4.9
+  
+  ```	
 
   ## Environment
 
