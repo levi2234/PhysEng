@@ -8,7 +8,7 @@ import numpy as np
 
 
 x = pe.Environment()
-vis =Visualize(x)
+vis =Visualize(x, render=True)
 
 
 

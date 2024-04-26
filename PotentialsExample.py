@@ -6,7 +6,7 @@ from PhysEng.Visualize.pygametoxy import pygame_to_xy
 import PhysEng as pe
 import numpy as np
 x = pe.Environment()
-vis =Visualize(x)
+vis =Visualize(x, render_video=True, output="test.mp4", output_fps=30, output_framelimit=900)
 
 def velocity_field_lorenz_centered(particle, sigma=10, rho=28, beta=8/3, center_x=0, center_y=0, active=True,**kwargs):
     # Adjust particle.position by subtracting the center coordinates before calculations
