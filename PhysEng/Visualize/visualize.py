@@ -82,12 +82,6 @@ class Visualize():
         
         self.Menubar = MenuBar(self)
         
-        #setup renderer
-
-        
-        
-
-        
         
 #-------------MAIN LOOP----------------
         while self.rendering:
@@ -128,7 +122,7 @@ class Visualize():
                 EventHandler(self, event)
             
             
-            
+            pg.display.flip()
             
             
             #render frame
@@ -140,7 +134,7 @@ class Visualize():
                 
 
             
-            pg.display.flip()
+            
 
         
         #render video

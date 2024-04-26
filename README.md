@@ -2,7 +2,7 @@
 
 The PhysEng library is a 100% Python physics engine that allows you to simulate physical systems in 3D. The library is designed to be easy to use and flexible, allowing you to create complex simulations with minimal effort. The library is built on top of the NumPy library, which provides fast and efficient numerical computations.
 
-![AA Simple Demonstration of Multiple Velocity and Force fields](Demo.gif)
+![A Simple Demonstration of Multiple Velocity and Force fields](Demo.gif)
 
 
 
@@ -29,14 +29,84 @@ The PhysEng library is a 100% Python physics engine that allows you to simulate 
   
   ```	
 
-  ## Environment
+## Usage
 
-  * **Environment Params**
-       ```python
-        from physeng.environment import Environment
+  ### First Simulation
 
-        new_environment = Environment()
-    ```
+  * Step 1: Create a new Python file and import the necessary libraries
+
+  ```python
+import pygame as pg
+import PhysEng as pe
+from PhysEng.Environment import Environment
+from PhysEng.Visualize import Visualize
+from PhysEng.Visualize.pygametoxy import pygame_to_xy
+import numpy as np
+  ```
+
+  * Step 2: Create a new environment and add some particles
+
+  ```python
+#.....Previous code
+env = Environment()
+  ```
+
+  * Step 3 : Create the visualization so we can see and interact with the simulation at runtime.
+
+  ```python
+#.....Previous code
+new_visualization = Visualize(env) #pass the environment
+  ```
+
+  * Step 4:  ADD PARTICLES The Library has a few built in basic objects such as particles, balls and anchored cloth. You can create these objects and add them to the environment. As such we also have a few built in physics fields such as gravity, drag and electrostatic fields. 
+
+  ```python
+#.....Previous code 
+
+
+ from PhysEng.Bodies import Particle
+ 
+ position = [1,4,7] # [x,y,z] in meters          Default = [0,0,0]
+ velocity = [0,0,0] # [vx,vy,vz] in m/s          Default = [0,0,0]
+ radius = 0.1 # in meters                        Default = 0
+ force = [0,0,0] # [fx,fy,fz] in Newtons         Default = [0,0,0]
+ mass = 1 # in kg                                Default = 1
+ charge = 0 # in Coulombs                        Default = 0
+ drag_coefficient = 0.47 # dimensionless         Default = 0
+ fixed = False #Boolean (fixes pos and vel)      Default = False
+ environment = env #Environment class           Default = None
+
+ new_particle = Particle(position, mass, velocity, radius=0, charge, drag_coeff, name, environment, **kwargs)
+
+  #adding a few particle
+  for _ in range(2000):
+      env.add_particle(pe.Particle(mass = np.random.randint(1,15), position = np.random.rand(3) * 200 -100, radius=2)) 
+
+
+  #adding fields
+  env.add_uniform_acceleration_field(name='gravity', a=[0, 9.8, 0])
+  env.add_drag(name='drag')
+  
+  ```
+
+  * Step 5: Run the simulation
+
+  ```python
+  #.....Previous code
+  new_visualization.simulationheight = [0, 50]
+  new_visualization.simulationwidth = [-100, 100]
+  new_visualization.show()
+  ```
+
+  * Step 6: Watch your simulation run!
+* 
+
+  
+
+
+
+
+<!-- 
 
   ## Bodies & Particles
 
@@ -98,4 +168,4 @@ The PhysEng library is a 100% Python physics engine that allows you to simulate 
 
   * [N-body gravity]() (3D N body gravity simulation $N^2$) 
 
-
+ -->
