@@ -65,6 +65,7 @@ new_visualization = Visualize(env) #pass the environment
 
 
  from PhysEng.Bodies import Particle
+ 
 
   #adding a few particle
   for _ in range(2000):
@@ -87,7 +88,7 @@ new_visualization = Visualize(env) #pass the environment
   ```
 
   * Step 6: Watch your simulation run!
-  ![AA Simple Demonstration of Multiple Velocity and Force fields](Demo2.mp4)
+  ![AA Simple Demonstration of Multiple Velocity and Force fields](Demo2.gif)
 
   
 
