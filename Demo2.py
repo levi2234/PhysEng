@@ -5,16 +5,9 @@ from PhysEng.Visualize import Visualize
 from PhysEng.Visualize.pygametoxy import pygame_to_xy
 import numpy as np
 env = Environment()
-new_visualization = Visualize(env, output="Demo2.gif") #pass the environment
+new_visualization = Visualize(env, output="Demo2.mp4") #pass the environment
 
 from PhysEng.Bodies import Particle
-
-position = [0,0,0] # [x,y,z] in meters          Default = [0,0,0]
-velocity = [0,0,0] # [vx,vy,vz] in m/s          Default = [0,0,0]
-radius = 0.1 # in meters                        Default = 0
-
-mass = 1 # in kg                                Default = 1
-
 environment = env #Environment class           Default = None
 
 for _ in range(2000):

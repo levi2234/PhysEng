@@ -87,7 +87,7 @@ new_visualization = Visualize(env) #pass the environment
   ```
 
   * Step 6: Watch your simulation run!
-  ![AA Simple Demonstration of Multiple Velocity and Force fields](Demo2.gif)
+  ![AA Simple Demonstration of Multiple Velocity and Force fields](Demo2.mp4)
 
   
 
