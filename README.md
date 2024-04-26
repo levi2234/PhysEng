@@ -65,18 +65,6 @@ new_visualization = Visualize(env) #pass the environment
 
 
  from PhysEng.Bodies import Particle
- 
- position = [1,4,7] # [x,y,z] in meters          Default = [0,0,0]
- velocity = [0,0,0] # [vx,vy,vz] in m/s          Default = [0,0,0]
- radius = 0.1 # in meters                        Default = 0
- force = [0,0,0] # [fx,fy,fz] in Newtons         Default = [0,0,0]
- mass = 1 # in kg                                Default = 1
- charge = 0 # in Coulombs                        Default = 0
- drag_coefficient = 0.47 # dimensionless         Default = 0
- fixed = False #Boolean (fixes pos and vel)      Default = False
- environment = env #Environment class           Default = None
-
- new_particle = Particle(position, mass, velocity, radius=0, charge, drag_coeff, name, environment, **kwargs)
 
   #adding a few particle
   for _ in range(2000):
