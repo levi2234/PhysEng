@@ -1,4 +1,4 @@
-# <img src="README/logo.png" width="100" height="100"> PhysEng - A 100% Python Physics Engine
+# <img src="README/logo.png" width="100" height="100"> PhysEng - A 95% Python Physics Engine
 
 The PhysEng library is a 100% Python physics engine that allows you to simulate physical systems in 3D. The library is designed to be easy to use and flexible, allowing you to create complex simulations with minimal effort. 
 
