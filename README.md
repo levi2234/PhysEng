@@ -2,7 +2,7 @@
 
 The PhysEng library is a 100% Python physics engine that allows you to simulate physical systems in 3D. The library is designed to be easy to use and flexible, allowing you to create complex simulations with minimal effort. 
 
-![A Simple Demonstration of Multiple Velocity and Force fields](README\Demo.gif)
+![A Simple Demonstration of Multiple Velocity and Force fields](README/Demo.gif)
 
 ## Features
 
@@ -98,7 +98,7 @@ new_visualization = Visualize(env) #pass the environment
   ```
 
   * Step 6: Watch your simulation run!
-  ![AA Simple Demonstration of Multiple Velocity and Force fields](Demo2.gif)
+  ![AA Simple Demonstration of Multiple Velocity and Force fields](README/Demo2.gif)
 
   
 
