@@ -1,8 +1,18 @@
 # PhysEng - A 100% Python Physics Engine
 
-The PhysEng library is a 100% Python physics engine that allows you to simulate physical systems in 3D. The library is designed to be easy to use and flexible, allowing you to create complex simulations with minimal effort. The library is built on top of the NumPy library, which provides fast and efficient numerical computations.
+The PhysEng library is a 100% Python physics engine that allows you to simulate physical systems in 3D. The library is designed to be easy to use and flexible, allowing you to create complex simulations with minimal effort. 
 
 ![A Simple Demonstration of Multiple Velocity and Force fields](Demo.gif)
+
+## Features
+
+* **Particle Simulation**: Create and simulate particles with mass, charge, and velocity.
+* **Soft Body Simulation**: Create and simulate soft bodies such as balls and anchored cloth.
+* **Physics Fields**: Add physics fields such as gravity, drag, and electrostatic fields.
+* **Collision Detection**: Detect and resolve collisions between particles and soft bodies.
+* **Visualization**: Visualize and interact with the simulation in real-time.
+* **Customization**: Customize the simulation with custom physics fields and soft bodies.
+* 
 
 
 
