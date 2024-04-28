@@ -129,7 +129,7 @@ class Visualize():
             
             
             #render frame
-            if self.render_video and self.simulating:
+            if self.render_video and self.simulating and self.enable_rendering:
                 
                 imgdata = np.copy(pg.surfarray.pixels2d(screen))
                 
