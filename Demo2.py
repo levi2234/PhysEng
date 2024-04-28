@@ -5,7 +5,7 @@ from PhysEng.Visualize import Visualize
 from PhysEng.Visualize.pygametoxy import pygame_to_xy
 import numpy as np
 env = Environment()
-new_visualization = Visualize(env, output="Demo2.gif") #pass the environment
+new_visualization = Visualize(env, output="Demo2.gif", enable_rendering=True) #pass the environment
 
 from PhysEng.Bodies import Particle
 environment = env #Environment class           Default = None

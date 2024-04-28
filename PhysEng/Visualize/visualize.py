@@ -30,12 +30,14 @@ from PhysEng.Visualize.Elements.Enable_Leapfrog import EnableLeapfrog
 
 
 class Visualize():
-    def __init__(self,environment, name="Simulation", render_video=True, output_fps=30, output="output.mp4", output_codec="libx264", output_framelimit=300) -> None:
+    def __init__(self,environment, name="Simulation",enable_rendering=False, render_video=False, output_fps=30, output="output.mp4", output_codec="libx264", output_framelimit=300) -> None:
         self.environment = environment
         self.screenwidth, self.screenheight = 1500, 720
         self.simulationwidth, self.simulationheight = [0,60], [0,60] #dimensions of the simulation that are seen
         self.render_video = render_video
-        self.renderer = Renderer(output=output, fps=output_fps, codec=output_codec, framelimit=output_framelimit)
+        self.enable_rendering = enable_rendering
+        if self.enable_rendering:
+            self.renderer = Renderer(output=output, fps=output_fps, codec=output_codec, framelimit=output_framelimit)
 
         
         self.elements = [   ShowParticles(self, self.environment),
@@ -54,11 +56,11 @@ class Visualize():
                              EnableRK4(self, self.environment),
                              EnableVerlet(self, self.environment),
                              EnableLeapfrog(self, self.environment)]
-        
-        self.recorders = [ShowBuffersize(self, self.environment),
-                          ClearBuffer(self, self.environment),
-                          EnableRendering(self, self.environment)
-                          ]
+        if self.enable_rendering:
+            self.recorders = [ShowBuffersize(self, self.environment),
+                            ClearBuffer(self, self.environment),
+                            EnableRendering(self, self.environment)
+                            ]
         self.screen = None
         self.camera_vector = [0,0,1] #unit vector pointing in the direction of the camera
         self.name = name
@@ -108,9 +110,10 @@ class Visualize():
             # #load all integrators
             for i in self.integrators:
                 i.show()
-                
-            for i in self.recorders:
-                i.show()
+            
+            if self.enable_rendering:  
+                for i in self.recorders:
+                    i.show()
 
                 
             

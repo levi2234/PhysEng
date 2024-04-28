@@ -41,11 +41,12 @@ class MenuBar():
             integratorlinks.append(integrator_tab)
         
         
-        recorderlinks = []
-        for count,val in enumerate(self.visualizer.recorders):
-            Recorder_pos = [480, (count+1) * 20]
-            recorder_tab = MenuTab(visualizer=self.visualizer, pos=Recorder_pos, name=val.name, width=120, active=False, linked_elements=[val])
-            recorderlinks.append(recorder_tab)
+        if self.visualizer.enable_rendering:
+            recorderlinks = []
+            for count,val in enumerate(self.visualizer.recorders):
+                Recorder_pos = [480, (count+1) * 20]
+                recorder_tab = MenuTab(visualizer=self.visualizer, pos=Recorder_pos, name=val.name, width=120, active=False, linked_elements=[val])
+                recorderlinks.append(recorder_tab)
         
         
         Elements_pos = [240, 0]
@@ -64,9 +65,11 @@ class MenuBar():
         integrator_tab = MenuTab(visualizer=self.visualizer, pos=Integrator_pos, name="Integrators", width=120,color=[200,200,200], linked_elements=integratorlinks, active=True)
         self.tabs.append(integrator_tab)
         
-        Recorder_pos = [480, 0]
-        recorder_tab = MenuTab(visualizer=self.visualizer, pos=Recorder_pos, name="Recorder", width=120,color=[200,200,200], active=True, linked_elements=recorderlinks)
-        self.tabs.append(recorder_tab)
+        
+        if self.visualizer.enable_rendering:
+            Recorder_pos = [480, 0]
+            recorder_tab = MenuTab(visualizer=self.visualizer, pos=Recorder_pos, name="Recorder", width=120,color=[200,200,200], active=True, linked_elements=recorderlinks)
+            self.tabs.append(recorder_tab)
 
      
     def draw(self):

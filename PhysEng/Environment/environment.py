@@ -1,5 +1,4 @@
 from PhysEng.Bodies.spring_link import Spring_link
-from matplotlib import pyplot as plt
 from PhysEng.Integrators import euler
 from  PhysEng.Collisions.ParticleParticleCollision import ParticleParticleCollision
 
@@ -86,9 +85,10 @@ class Environment():
         from PhysEng.Forces.drag import Drag
         self.add_force(Drag(self, active=active), name=name)
         
-    def add_gravity_KDtree(self, G=6.67430e-11, softening_length=0, active=True, name=None):
-        from PhysEng.Forces.gravityKDtree import GravityKDTree
-        self.add_force(GravityKDTree(self, G, softening_length=softening_length, active=active), name=name)
+    # This needs to be made in pure python to keep true to the pure python approach
+    # def add_gravity_KDtree(self, G=6.67430e-11, softening_length=0, active=True, name=None):
+    #     from PhysEng.Forces.gravityKDtree import GravityKDTree
+    #     self.add_force(GravityKDTree(self, G, softening_length=softening_length, active=active), name=name)
         
     def add_field(self, field_function, active=True, name=None, **kwargs): 
         from PhysEng.Forces.custom_field import CustomField
@@ -129,11 +129,6 @@ class Environment():
     def run(self, steps):
         for i in range(steps):
             self.step()
-    
-    def show(self) -> None:
-        for i in self.particles:
-            plt.scatter(i.position[0], i.position[1], c="red")
-        plt.show()
 
     def __str__(self) -> str:
         return(self.__name__ + " " + self.__version__)
