@@ -1,2 +1,7 @@
 PhysEng/__pycache__/
+PhysEng/Bodies/__pycache__/
+PhysEng/Forces/__pycache__/
+PhysEng/Integrators/__pycache__/
+PhysEng/Visualize/__pycache__/
+PhysEng/Collisions/__pycache__/
 .gitignore
