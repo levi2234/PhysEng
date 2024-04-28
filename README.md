@@ -1,4 +1,4 @@
-# <img src="README/logo.png" width="100" height="100"> PhysEng - A 100% Python Physics Engine
+# <img src="README/logo.png" width="100" height="100"> PhysEng - A 95% Python Physics Engine
 
 # PhysEng - A 100% Python Physics Engine
 
