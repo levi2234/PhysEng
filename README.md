@@ -1,9 +1,5 @@
 # <img src="README/logo.png" width="100" height="100"> PhysEng - A 95% Python Physics Engine
 
-# PhysEng - A 100% Python Physics Engine
-
-
-
 PhysEng is a fully Python-based physics engine designed for simulating physical systems in 3D. It's user-friendly and highly flexible, enabling the creation of complex simulations with ease.
 
 ![A Simple Demonstration of Multiple Velocity and Force Fields](README/Demo.gif)
