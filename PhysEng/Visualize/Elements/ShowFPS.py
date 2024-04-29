@@ -2,6 +2,13 @@ import pygame as pg
 from PhysEng.Visualize.xytopygame import xy_to_topygame as xy
 
 class ShowFPS():
+    """
+    A class for displaying the frames per second (FPS) on the screen through the menu.
+
+    Args:
+        visualize (Visualize): The Visualize object.
+        environment (Environment): The Environment object.
+    """
     
     def __init__(self, visualize, environment) -> None:
         self.visualize = visualize
@@ -13,6 +20,9 @@ class ShowFPS():
         pass
     
     def show(self):
+        """
+        Displays the FPS on the screen.
+        """
         if self.active:
             current_time = pg.time.get_ticks()
             fps = 1000 / (current_time - self.prev_time)

@@ -24,6 +24,16 @@ def velocity_to_color(velocity, reference_width): #velocity is in terms of pygam
     
     
 class ShowVelocityColor():
+    """
+    A class that visualizes the velocity of particles by changing their color.
+    
+    Attributes:
+        visualize (Visualize): The visualization object.
+        environment (Environment): The environment object.
+        active (bool): Indicates if the visualization is active.
+        name (str): The name of the visualization.
+        max_velocity (int): The maximum velocity value.
+    """
     
     def __init__(self, visualize, environment) -> None:
         self.visualize = visualize
@@ -34,6 +44,9 @@ class ShowVelocityColor():
         pass
     
     def show(self):
+        """
+        Updates the color of particles based on their velocity.
+        """
         if self.active:
             
             referencewidth = self.visualize.screenwidth

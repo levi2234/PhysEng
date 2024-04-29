@@ -2,7 +2,14 @@ import pygame as pg
 from PhysEng.Visualize.xytopygame import xy_to_topygame as xy
 
 class ShowForces():
-    
+    """
+    A class for visualizing force vectors in a physics simulation.
+
+    Args:
+        visualize (Visualize): The visualization object.
+        environment (Environment): The environment object.
+    """
+
     def __init__(self, visualize, environment) -> None:
         self.visualize = visualize
         self.environment = environment
@@ -11,6 +18,9 @@ class ShowForces():
         pass
     
     def show(self):
+        """
+        Display the force vectors on the screen.
+        """
         if self.active:
             for i in self.environment.particles:
                 force = i.previous_force

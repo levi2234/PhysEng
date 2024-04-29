@@ -2,6 +2,13 @@ import pygame as pg
 
 
 class ShowPlayPause():
+    """
+    Class for controlling the play/pause functionality in a visualization.
+    
+    Args:
+        visualize (Visualize): The visualization object.
+        environment (Environment): The environment object.
+    """
     
     def __init__(self, visualize, environment) -> None:
         self.visualize = visualize
@@ -9,22 +16,12 @@ class ShowPlayPause():
         self.active = False
         self.name = "Play/Pause"
         
-        
-        pass
-    
     def show(self):
-        #eventlistener for play/pause with spacebar
-        # for event in pg.event.get():
-        #     if event.type == pg.KEYDOWN:
-        #         if event.key == pg.K_SPACE:
-        #             self.active = not self.active
-        #             pass
-        #         pass
-        #     pass        
-
+        """
+        Show the play/pause functionality.
+        """
         if self.active:
             self.visualize.simulating = True
             
         if not self.active:
             self.visualize.simulating = False
-        pass
