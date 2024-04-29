@@ -24,7 +24,7 @@ class Environment():
             None
         """
         self.__name__ = "Environment"
-        self.__version__ = "0.0.7"
+        self.__version__ = "0.1.1"
         
         self.particles = particles
         self.bodies = bodies
