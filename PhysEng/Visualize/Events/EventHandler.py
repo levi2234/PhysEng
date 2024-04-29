@@ -10,7 +10,16 @@ from PhysEng.Visualize.Events.update_screen_size import update_screen_size
 from PhysEng.Visualize.Events.playpausespacebar import playpausespacebar
 
 def EventHandler(viz, event):
-    
+    """
+    Handles various events for the visualization.
+
+    Parameters:
+    - viz: The visualization object.
+    - event: The event object representing the user input.
+
+    Returns:
+    None
+    """
 
     if event.type == pg.QUIT:
        quit(viz)
