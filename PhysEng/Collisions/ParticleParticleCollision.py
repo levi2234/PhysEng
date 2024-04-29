@@ -4,8 +4,8 @@ import numpy as np
 
 class ParticleParticleCollision():
     
-    def __init__(self, environment) -> None:
-            self.environment = None
+    def __init__(self, environment) :
+            self.environment = environment
             
     def update(self):
         

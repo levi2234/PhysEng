@@ -1,14 +1,24 @@
 import numpy as np
 
 class leapfrog():
+    """
+    The leapfrog class represents a leapfrog integrator for simulating particle motion in a physical environment.
     
-    def __init__(self,environment=None, name="RLeapFrog") -> None:
+        
+    Args:
+        environment (object): The environment object.
+        name (str): The name of the integrator.
+    
+    """
+
+    def __init__(self, environment=None, name="RLeapFrog") -> None:
         self.environment = None
         self.name = name
 
-        
-    
     def update(self):
+        """
+        Updates the positions and velocities of particles in the environment using the leapfrog integration method.
+        """
         for i in self.environment.particles:
             k1 = i.velocity
             l1 = i.force / i.mass

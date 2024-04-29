@@ -11,7 +11,6 @@ from PhysEng.Visualize.Elements.ShowAxes import ShowAxes
 from PhysEng.Visualize.Elements.ShowForceVector import ShowForces
 from PhysEng.Visualize.Elements.ShowTrail import ShowTrail
 from PhysEng.Visualize.Elements.ShowPlayPause import ShowPlayPause
-from PhysEng.Visualize.pygametoxy import pygame_to_xy
 from PhysEng.Visualize.Events.EventHandler import EventHandler
 from PhysEng.Visualize.Menu.menubar import MenuBar
 

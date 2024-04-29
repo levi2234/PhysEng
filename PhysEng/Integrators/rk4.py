@@ -1,14 +1,22 @@
 import numpy as np
 
 class rk4():
+    """
+    The Runge-Kutta 4 (RK4) class for numerical integration.
     
-    def __init__(self,environment=None, name="Runge-Kutta 4") -> None:
+    Args:
+        environment (object): The environment object.
+        name (str): The name of the integrator.
+    """
+    
+    def __init__(self, environment=None, name="Runge-Kutta 4") -> None:
         self.environment = None
         self.name = name
 
-        
-    
     def update(self):
+        """
+        Update the positions and velocities of particles using the RK4 method.
+        """
         for i in self.environment.particles:
             k1 = i.velocity
             l1 = i.force / i.mass

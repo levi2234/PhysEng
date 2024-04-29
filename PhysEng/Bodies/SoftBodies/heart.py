@@ -6,6 +6,64 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 class Heart():
+    """
+    Represents a heart-shaped soft body.
+
+    Args:
+        position (list): The initial position of the heart. Defaults to [0, 0, 0].
+        mass (float): The mass of the heart. Defaults to 1.
+        velocity (list): The initial velocity of the heart. Defaults to [0, 0, 0].
+        radius (int): The radius of the heart. Defaults to 100.
+        charge (int): The charge of the heart. Defaults to 0.
+        drag_coeff (float): The drag coefficient of the heart. Defaults to 0.
+        elasticity (float): The elasticity of the heart. Defaults to 0.
+        N_particles (int): The number of particles used to construct the heart. Defaults to 20.
+        damping (float): The damping factor of the heart. Defaults to 0.4.
+        name (str): The name of the heart. Defaults to an empty string.
+        environment (object): The environment in which the heart exists. Defaults to None.
+
+    Attributes:
+        environment (object): The environment in which the heart exists.
+        position (list): The position of the heart.
+        radius (int): The radius of the heart.
+        mass (float): The mass of the heart.
+        elasticity (float): The elasticity of the heart.
+        velocity (list): The velocity of the heart.
+        force (list): The force acting on the heart.
+        drag (float): The drag coefficient of the heart.
+        number_of_particles (int): The number of particles used to construct the heart.
+        name (str): The name of the heart.
+        charge (int): The charge of the heart.
+        damping (float): The damping factor of the heart.
+        particles (list): The particles that make up the heart.
+        spring_links (list): The spring links between particles in the heart.
+
+    Methods:
+        heart_3d: Calculates the implicit function of a 3D heart shape.
+        plot_implicit: Creates a plot of an implicit function.
+        nearest_neighbours: Finds the nearest neighbors of a particle.
+        construct_heart: Constructs the heart by creating particles and spring links.
+    """
+
+    def __init__(self, position=[0,0,0], mass=1, velocity=[0,0,0], radius=100, charge=0, drag_coeff=0, elasticity=0, N_particles=20, damping=0.4, name="", environment=None):
+        self.environment = environment
+        self.position = position
+        self.radius = radius
+        self.mass = mass
+        self.elasticity = elasticity
+        self.velocity = velocity
+        self.force = [0, 0, 0]
+        self.drag = drag_coeff
+        self.number_of_particles = N_particles
+        self.name = name
+        self.charge = charge
+        self.damping = damping
+        self.particles = []
+        self.spring_links = []
+        self.construct_heart()
+
+    # Rest of the code...
+class Heart():
     def __init__(self, position=[0,0,0], mass =1, velocity=[0,0,0], radius=100, charge =0,drag_coeff=0,elasticity=0, N_particles=20, damping=0.4, name="",environment=None)->None:
         
         self.environment = environment

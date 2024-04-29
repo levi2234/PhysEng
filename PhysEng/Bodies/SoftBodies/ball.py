@@ -4,6 +4,54 @@ import numpy as np
 import math
 
 class Ball():
+    """
+    Represents a ball object in a physics simulation.
+
+    Args:
+        position (list[float]): The initial position of the ball in 3D space. Defaults to [0, 0, 0].
+        mass (float): The mass of the ball. Defaults to 1.
+        velocity (list[float]): The initial velocity of the ball in 3D space. Defaults to [0, 0, 0].
+        radius (float): The radius of the ball. Defaults to 100.
+        charge (float): The charge of the ball. Defaults to 0.
+        drag_coeff (float): The drag coefficient of the ball. Defaults to 0.
+        elasticity (float): The elasticity of the ball. Defaults to 0.
+        N_particles (int): The number of particles used to construct the ball. Defaults to 20.
+        damping (float): The damping coefficient of the ball. Defaults to 0.4.
+        name (str): The name of the ball. Defaults to an empty string.
+        environment (Environment): The environment in which the ball exists. Defaults to None.
+
+    Attributes:
+        environment (Environment): The environment in which the ball exists.
+        position (list[float]): The current position of the ball in 3D space.
+        radius (float): The radius of the ball.
+        mass (float): The mass of the ball.
+        elasticity (float): The elasticity of the ball.
+        velocity (list[float]): The current velocity of the ball in 3D space.
+        force (list[float]): The total force acting on the ball.
+        drag (float): The drag coefficient of the ball.
+        number_of_particles (int): The number of particles used to construct the ball.
+        name (str): The name of the ball.
+        charge (float): The charge of the ball.
+        damping (float): The damping coefficient of the ball.
+    """
+
+    def __init__(self, position=[0,0,0], mass=1, velocity=[0,0,0], radius=100, charge=0, drag_coeff=0, elasticity=0, N_particles=20, damping=0.4, name="", environment=None):
+        self.environment = environment
+        self.position = position
+        self.radius = radius
+        self.mass = mass
+        self.elasticity = elasticity
+        self.velocity = velocity
+        self.force = [0, 0, 0]
+        self.drag = drag_coeff
+        self.number_of_particles = N_particles
+        self.name = name
+        self.charge = charge
+        self.damping = damping
+        self.construct_ball()
+
+    # Rest of the code...
+class Ball():
     def __init__(self, position=[0,0,0], mass =1, velocity=[0,0,0], radius=100, charge =0,drag_coeff=0,elasticity=0, N_particles=20, damping=0.4, name="",environment=None)->None:
         
         self.environment = environment

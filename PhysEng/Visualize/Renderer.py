@@ -1,22 +1,14 @@
 
 import pygame as pg
+from collections import deque
 
 
 class Renderer:
+    
     def __init__(self, fps=30, output="output.gif", codec="libx264", framelimit=300):
-        from collections import deque
+
         
-        try:
-            import imageio as io
-        except ImportError:
-            print("imageio not installed. Please install imageio to use the renderer.")
-            return
-        
-        try:
-            import numpy as np
-        except ImportError:
-            print("numpy not installed. Please install numpy to use the renderer.")
-            return
+
         self.fps = fps
         self.output = output
         self.frames = deque([])
@@ -35,6 +27,17 @@ class Renderer:
     
 
     def render(self):
+        try:
+            import imageio as io
+        except ImportError:
+            print("imageio not installed. Please install imageio to use the renderer.")
+            return
+        
+        try:
+            import numpy as np
+        except ImportError:
+            print("numpy not installed. Please install numpy to use the renderer.")
+            return
         if not self.frames:
             print("No frames to render.")
             return
