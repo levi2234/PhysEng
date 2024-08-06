@@ -5,4 +5,8 @@ PhysEng/Forces/__pycache__/
 PhysEng/Integrators/__pycache__/
 PhysEng/Visualize/__pycache__/
 PhysEng/Collisions/__pycache__/
+PhysEng/Visualize/Elements/__pycache__/
+PhysEng/Visualize/Events/__pycache__/
+PhysEng/Visualize/Menu/__pycache__/
+PhysEng/Environment/__pycache__/
 .gitignore
