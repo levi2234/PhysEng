@@ -157,9 +157,16 @@ class Environment():
         from PhysEng.Forces.uniform_acceleration_field import UniformAccelerationField
         self.add_force(UniformAccelerationField(self, a, active=active), name=name)
         
-    def add_gravity(self, G= 6.67430e-11, softening_length=0, active=True, name=None):
-        from PhysEng.Forces.gravity import Gravity
-        self.add_force(Gravity(self, G, softening_length=softening_length, active=active), name=name)
+    def add_gravity(self, G= 6.67430e-11, softening_length=0, active=True, name=None, use_gpu=False):
+        
+        if use_gpu:
+            from PhysEng.Forces.gravity_cuda import Gravity_Cuda
+            self.add_force(Gravity_Cuda(self, G, softening_length=softening_length, active=active), name=name)
+            
+        else:
+            from PhysEng.Forces.gravity import Gravity
+            self.add_force(Gravity(self, G, softening_length=softening_length, active=active), name=name)
+
         
     def add_coulomb(self, k=8.9875517873681764e9, active=True, name=None):
         from PhysEng.Forces.coulomb import Coulomb

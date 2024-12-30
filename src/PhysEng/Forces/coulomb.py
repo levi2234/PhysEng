@@ -27,7 +27,7 @@ class Coulomb():
         """
         Updates the forces acting on the particles in the environment due to the Coulomb force.
         """
-        if self.active == False:
+        if self.active is False:
             return
         
         for i in self.environment.particles:

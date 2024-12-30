@@ -10,8 +10,10 @@ Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
 Requires-Python: >=3.9
 Description-Content-Type: text/markdown
-Provides-Extra: dev
 License-File: LICENSE
+Requires-Dist: numba
+Provides-Extra: dev
+Requires-Dist: pytest-cov; extra == "dev"
 
 # <img src="README/logo.png" width="100" height="100"> PhysEng - A 95% Python Physics Engine
 

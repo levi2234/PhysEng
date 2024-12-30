@@ -26,6 +26,7 @@ src/PhysEng/Forces/custom_field.py
 src/PhysEng/Forces/drag.py
 src/PhysEng/Forces/gravity.py
 src/PhysEng/Forces/gravityKDtree.py
+src/PhysEng/Forces/gravity_cuda.py
 src/PhysEng/Forces/spring.py
 src/PhysEng/Forces/uniform_acceleration_field.py
 src/PhysEng/Forces/uniform_force_field.py

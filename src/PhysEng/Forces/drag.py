@@ -20,7 +20,7 @@ class Drag():
         """
         Updates the forces acting on the particles due to drag.
         """
-        if self.active == False:
+        if self.active is False:
             return
         
         for i in self.environment.particles:

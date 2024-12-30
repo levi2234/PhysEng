@@ -1,5 +1,5 @@
 import numpy as np
-
+import cupy as cp
 class euler():
     """
     Euler class for numerical integration using the Euler method.

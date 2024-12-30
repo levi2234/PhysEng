@@ -10,3 +10,5 @@ PhysEng/Visualize/Events/__pycache__/
 PhysEng/Visualize/Menu/__pycache__/
 PhysEng/Environment/__pycache__/
 .gitignore
+.venv
+.vs
