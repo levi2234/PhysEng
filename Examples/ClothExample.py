@@ -28,7 +28,7 @@ env.add_spring(softening_length=0)
 
 
 
-vis =pe.Visualize(env, render_video=True, output="test.mp4", output_fps=30, output_framelimit=900)
+vis =pe.Visualize(env, render_video=True, output="cloth.gif", output_fps=60, output_framelimit=900, enable_rendering=True)
 vis.simulationheight = [0, 2000]
 vis.simulationwidth = [0, 2000]
 vis.show()
