@@ -1,7 +1,7 @@
 from PhysEng.Bodies.spring_link import Spring_link
 from PhysEng.Integrators import euler
 from  PhysEng.Collisions.ParticleParticleCollision import ParticleParticleCollision
-
+import os
 
 class Environment():
     
@@ -36,6 +36,9 @@ class Environment():
         self.dt = dt
         self.dimensions = dimensions
         self.integrator = integrator(self)
+        
+
+
         
         print(r"""
      ______ _                _____                       _                _                      _____    
