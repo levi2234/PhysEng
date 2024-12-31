@@ -1,7 +1,5 @@
 import pygame as pg
 import numpy as np
-import os
-import threading
 
 
 from PhysEng.Visualize.Elements.ShowParticles import ShowParticles
@@ -37,13 +35,6 @@ class Visualize():
         self.simulationwidth, self.simulationheight = [0,60], [0,60] #dimensions of the simulation that are seen
         self.render_video = render_video
         self.enable_rendering = enable_rendering
-        self.temp_path = os.path.join(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)), 'temp')
-        
-        #simulation thread and lock
-        self.simulation_thread = None
-        self.simulation_lock = threading.Lock()
-        self.simulating = False
-        
         if self.enable_rendering:
             self.renderer = Renderer(output=output, fps=output_fps, codec=output_codec, framelimit=output_framelimit)
 
@@ -80,22 +71,6 @@ class Visualize():
         
         pass
     
-    
-    def propagate_simulation(self):
-        while self.simulating:
-            with self.simulation_lock:
-                self.environment.step()
-
-    def start_simulation_thread(self):
-        self.simulating = True
-        self.simulation_thread = threading.Thread(target=self.propagate_simulation)
-        self.simulation_thread.start()
-
-    def stop_simulation_thread(self):
-        self.simulating = False
-        if self.simulation_thread:
-            self.simulation_thread.join()
-    
     def show(self):
         
 #-------------MAIN SETUP----------------
@@ -108,8 +83,6 @@ class Visualize():
         
         self.Menubar = MenuBar(self)
         
-
-        
         
 #-------------MAIN LOOP----------------
         while self.rendering:
@@ -121,9 +94,9 @@ class Visualize():
             self.Menubar.draw()
             
             #propagate simulation
-            # Start the simulation thread if not already started
-            if self.simulating and not self.simulation_thread:
-                self.start_simulation_thread()
+            if self.simulating:
+                self.environment.step()
+                
             
             #load all simulation elements (particles, forces, etc.)
             for i in self.elements:
@@ -159,9 +132,7 @@ class Visualize():
                 imgdata = np.copy(pg.surfarray.pixels2d(screen))
                 self.renderer.add_frame(imgdata)
                 
-        
-        # Stop the simulation thread when rendering stops
-        self.stop_simulation_thread()
+
         
         #render video
         if self.render_video:
